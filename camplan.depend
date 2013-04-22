@@ -1,0 +1,104 @@
+# depslib dependency file v1.0
+1009927025 source:e:\documents and settings\admin\Рабочий стол\camplan\sourses\comport.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<bitset>
+	"comport.hpp"
+
+1009926685 e:\documents and settings\admin\Рабочий стол\camplan\sourses\comport.hpp
+
+1009930227 source:e:\documents and settings\admin\Рабочий стол\camplan\sourses\decart.cpp
+	<math.h>
+	<vector>
+	<stdio.h>
+	"decart.hpp"
+
+1009930158 e:\documents and settings\admin\Рабочий стол\camplan\sourses\decart.hpp
+	<math.h>
+	<vector>
+
+1009927025 source:e:\documents and settings\admin\Рабочий стол\camplan\comport.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<bitset>
+	"comport.hpp"
+
+1009931917 e:\documents and settings\admin\Рабочий стол\camplan\comport.hpp
+	<windows.h>
+
+1009930227 source:e:\documents and settings\admin\Рабочий стол\camplan\decart.cpp
+	<math.h>
+	<vector>
+	<stdio.h>
+	"decart.hpp"
+
+1009931305 e:\documents and settings\admin\Рабочий стол\camplan\decart.hpp
+	<math.h>
+	<vector>
+
+1009934936 source:e:\documents and settings\admin\Рабочий стол\camplan\main.cpp
+	<iostream>
+	<atomic>
+	<vector>
+	<windows.h>
+	"comport.hpp"
+	"motor.hpp"
+
+1009934886 e:\documents and settings\admin\Рабочий стол\camplan\motor.hpp
+	<windows.h>
+	<cstdio>
+	<vector>
+	<atomic>
+	"decart.hpp"
+
+1009935030 source:e:\documents and settings\admin\Рабочий стол\camplan\motor.cpp
+	<cstdio>
+	<math.h>
+	<vector>
+	<windows.h>
+	"motor.hpp"
+
+1009926628 source:d:\21.04.13\camplan\decart.cpp
+	<math.h>
+	<vector>
+	<stdio.h>
+	"decart.hpp"
+
+1009927706 d:\21.04.13\camplan\decart.hpp
+	<math.h>
+	<vector>
+
+1009931430 source:d:\21.04.13\camplan\motor.cpp
+	<cstdio>
+	<math.h>
+	<vector>
+	<windows.h>
+	"motor.hpp"
+
+1009931288 d:\21.04.13\camplan\motor.hpp
+	<windows.h>
+	<cstdio>
+	<vector>
+	<atomic>
+	"decart.hpp"
+
+1009935304 source:d:\21.04.13\camplan\comport.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<bitset>
+	"comport.hpp"
+
+1009928318 d:\21.04.13\camplan\comport.hpp
+	<windows.h>
+
+1366615856 source:d:\21.04.13\camplan\main.cpp
+	<iostream>
+	<atomic>
+	<vector>
+	<windows.h>
+	"comport.hpp"
+	"motor.hpp"
+
