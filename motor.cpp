@@ -7,6 +7,10 @@
 #include <windows.h>
 
 #include "motor.hpp"
+#define ON      1
+#define OFF     0
+#define REVERSE 1
+#define FORWARD 0
 
 DWORD WINAPI getCurrPlace(LPVOID lpParameter)
 {
@@ -97,49 +101,33 @@ void allInfo::initMotorBase()
     //ropeLengthDelta.x=0; ropeLengthDelta.y=0; ropeLengthDelta.z=0;
 }
 
-void motor()
+bool allInfo::motor()
 {
-    /*
-    ///additional info in frec_format.txt
-    byte i=0;
-    decart *temp;
-    std::vector<decart *> axis;
-    decart speed;
-    speed.x=speed_x;
-    speed.y=speed_y;
-    speed.z=speed_z;
-    ///array for arduino mega
-    byte outInfo[8];
-    outInfo[0] = 0;     //it's for mega
-    outInfo[1] = 5;     //it's from desktop
-    outInfo[2] = 11;    //frec. command
-    outInfo[3] = 15;    //turn on all frec-s
-    std::vector<int > spd;
-    spd.resize(4);
-    for (i=0;i<4;i++)
+    //попытка захватить флаг
+    while(true)
     {
-        temp=new(decart);
-        temp=do_vector_from_null(&INFO.currPlace,&frame[i].base);
-        axis.push_back(temp);
-        spd[i]=proect(&speed,axis[i]);
-        outInfo[3]=spd[i]?((outInfo[3])&(~1<<i)):((outInfo[3])|(1<<i));
-        outInfo[4+i]=abs(spd[i]);
+        if(this->isLocked.test_and_set(std::memory_order_acquire))
+            Sleep(80); //ждать 1/10 секунды до следующей попытки
+        break;  //удачно захватили
     }
-    //отправка скоростей моторам, открытие com порта
-    int comNumber = COM_NUMBER;
-    char comName[10];
-    sprintf(comName, "\\\\.\\COM%d", comNumber);
-    HANDLE comport = NULL;
-    do
+    ///первые два, ардуино 0
+    if (!loadSpeedSettings(&(this->arduino[0]),ON,ON,
+                this->frame[0].isReverse,this->frame[1].isReverse,
+                this->frame[0].speedProecton,this->frame[1].speedProecton))
     {
-        comport = CreateFile(comName,             //open com3
-                    GENERIC_READ | GENERIC_WRITE, // for reading and writing
-                    0,                            // exclusive access
-                    NULL,                         // no security attributes
-                    OPEN_EXISTING,
-                    0,
-                    0);
+        std::cerr << "LoadSpeedSetting error, arduino#0(numeration from 0)" << std::endl;
+        this->isLocked.clear();
+        return false;
     }
-    while (comport==INVALID_HANDLE_VALUE);  //try to open again, if comport open fails
-        */
+    ///вторые два, ардуино 1
+    if (!loadSpeedSettings(&(this->arduino[1]),ON,ON,
+                this->frame[2].isReverse,this->frame[2].isReverse,
+                this->frame[3].speedProecton,this->frame[3].speedProecton))
+    {
+        std::cerr << "LoadSpeedSetting error,arduino#1(numeration from 0)" << std::endl;
+        this->isLocked.clear();
+        return false;
+    }
+    this->isLocked.clear();
+    return true;
 }

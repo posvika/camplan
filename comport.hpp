@@ -9,7 +9,8 @@ std::vector<HANDLE> findNOpenArduino();
 //returns vector pointer with HADLE-s - opened arduinos
 //array can be empty
 
-bool loadSpeedSettings (HANDLE *comport, bool is_1_on, bool is_2_on, bool is_1_reverse, bool is_2_reverse,
+bool loadSpeedSettings (HANDLE *comport, bool is_1_on, bool is_2_on,
+                   bool is_1_reverse, bool is_2_reverse,
                    byte speed_1, byte speed_2);
 //returns false if error
 //returns true either

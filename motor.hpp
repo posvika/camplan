@@ -21,6 +21,9 @@ struct base
     float height;
     std::vector<float > dist;   //расстояния до остальных камер(по часовой стрелке)
     std::vector<float > _flatDist; //проекции расстояний на плоскость
+    ///значение для частотника
+    byte speedProecton;
+    bool isReverse;
 };
 
 class allInfo   ///only one
@@ -37,8 +40,8 @@ class allInfo   ///only one
     byte speed_x, speed_y, speed_z;
     allInfo();
     void initMotorBase();
+    ///motor() делает попытку один раз, в случае ошибки просто выходит с false:
+    bool motor();
 };
 
-//void initMotorBase(allInfo *INFO);
 DWORD WINAPI getCurrPlace(LPVOID lpParam);
-void motor();

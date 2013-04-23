@@ -120,11 +120,11 @@
 	"comport.hpp"
 	"motor.hpp"
 
-1366625505 c:\users\powwow\documents\github\camplan\comport.hpp
+1366723323 c:\users\powwow\documents\github\camplan\comport.hpp
 	<windows.h>
 	<vector>
 
-1366719038 c:\users\powwow\documents\github\camplan\motor.hpp
+1366724075 c:\users\powwow\documents\github\camplan\motor.hpp
 	<windows.h>
 	<cstdio>
 	<vector>
@@ -132,7 +132,7 @@
 	"decart.hpp"
 	"comport.hpp"
 
-1366719204 source:c:\users\powwow\documents\github\camplan\motor.cpp
+1366724091 source:c:\users\powwow\documents\github\camplan\motor.cpp
 	<cstdio>
 	<iostream>
 	<math.h>
