@@ -186,10 +186,11 @@ float* getRopeLength(HANDLE *comport)
     cout << "writing error" << endl;
     cout << "0xDO written" << endl;
     //reading
-    byte _length[8];
+    byte *_length = new byte[8];
     do
     {
         ReadFile (comport, _length, 8, &dwBytesTransferred, 0);
+        ///могут быть отрицательными, все ок
         //cout << "read " << dwBytesTransferred << "bytes" << endl;
         /*if (dwBytesTransferred == 1)
         {

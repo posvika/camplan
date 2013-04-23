@@ -6,10 +6,11 @@
 #include <atomic>
 
 #include "decart.hpp"
+#include "comport.hpp"
 
 #define BASE_AMOUNT 4   //число креплений
 #define DELTA 0.1       //10sm
-#define STEP 0.05       //5sm
+#define STEP 0.05       //5sm - аг корректировки расстояния getCurrPlace()
 
 extern int speed_x, speed_y, speed_z;
 
@@ -19,7 +20,7 @@ struct base
     float radius;
     float height;
     std::vector<float > dist;   //расстояния до остальных камер(по часовой стрелке)
-    std::vector<float > flatDist; //проекции расстояний на плоскость
+    std::vector<float > _flatDist; //проекции расстояний на плоскость
 };
 
 class allInfo   ///only one

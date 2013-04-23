@@ -6,16 +6,6 @@
 #include "comport.hpp"
 #include "motor.hpp"
 
-/*
-DWORD WINAPI getCurrPlace(LPVOID lpParameter)
-{
-    for(int i=0; i<5; ++i) {
-        std::cout << "Thread  executing\n";
-    }
-    ExitThread(0);    // Специальный вызов для закрытия потока
-}
-*/
-
 int main()
 {
     allInfo *INFO=new(allInfo);
