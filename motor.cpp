@@ -7,23 +7,15 @@
 
 #include "motor.hpp"
 
-///decart place constants
-decart ropeLengthDelta;
-double MAX_X, MAX_Y, MAX_Z;
-int speed_x=0, speed_y=0, speed_z=0;
-std::vector<camera> frame;
-
-
 DWORD WINAPI getCurrPlace(LPVOID lpParameter)
 {
     ///Функция выполняется отдельным потоком!!!
     printf("Something done by place thread\n");
-    allInfo *inf = (allInfo *)lpParameter;
-    int i;
+//    allInfo *inf = (allInfo *)lpParameter;
     /*
-    while(1)
+    while(1)            //MAIN LOOP
     {
-        for (i=0;i<4;i++)
+        for (int i=0;i<4;i++)
         {
             if (distance(&frame[i].base,&(inf->currPlace)) > frame[i].radius)
                 //try to change currPlace and check if it better
@@ -52,27 +44,36 @@ bool inGoodPlace(SDL_Rect *dstrect)
 }
 **/
 
-void initMotorBase()
+allInfo::allInfo()
 {
-    /*
-    frame.resize(4);
-    int i;
+    atomic_flag_clear(&isLocked);
+    frame.resize(BASE_AMOUNT);
+    for(int i=0;i<BASE_AMOUNT;i++)
+        frame[i].dist.resize(BASE_AMOUNT-1);
+
+    speed_x=0; speed_y=0; speed_z=0;
+}
+
+void allInfo::initMotorBase()
+{
     FILE *inFile=NULL;
     inFile = fopen("input.txt","r");
-
-    MAX_X=0, MAX_Y=0, MAX_Z =0;
-    for (i=0;i<4;i++)
+    int temp;
+    std::vector<float > dist;   //вводимые расстояние ме
+    for (int i=0;i<4;i++)
     {
-        fscanf(inFile,"cam|r=%f|x=%lf|y=%lf|z=%lf\n",&frame[i].radius,&frame[i].base.x,&frame[i].base.y,&frame[i].base.z);
-        MAX_X=(frame[i].base.x > MAX_X)?frame[i].base.x:MAX_X;
-        MAX_Y=(frame[i].base.y > MAX_Y)?frame[i].base.y:MAX_Y;
-        MAX_Z=(frame[i].base.z > MAX_Z)?frame[i].base.z:MAX_Z;
-        //assert -s
+        fscanf(inFile,"base%d|r=%fsm|h=%fsm|%fsm|%fsm|%fsm\n",
+               &temp,
+               &(this->frame[i].radius),
+               &(this->frame[i].height),
+               &(this->frame[i].dist[0]),
+               &(this->frame[i].dist[1]),
+               &(this->frame[i].dist[2]));
+        //assert -s - проверки на адекватность входных данных
     }
-    INFO.currPlace.x=MAX_X/2; INFO.currPlace.y=MAX_Y/2; INFO.currPlace.z=MAX_Z/2;
-    ropeLengthDelta.x=0; ropeLengthDelta.y=0; ropeLengthDelta.z=0;
-    //getCurrPlace();
-    */
+    ///I.Находим проекции расстояний на плоскость
+
+    //ropeLengthDelta.x=0; ropeLengthDelta.y=0; ropeLengthDelta.z=0;
 }
 
 void motor()

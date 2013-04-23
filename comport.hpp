@@ -1,9 +1,13 @@
 #include <windows.h>
-#define COM_NUMBER 4
+#include <vector>
 
-bool openComport(int comNumber = COM_NUMBER);
+bool openComport(int comNumber);
 //do this for closing:
 //CloseHandle(comport);
+
+std::vector<HANDLE> findNOpenArduino();
+//returns vector pointer with HADLE-s - opened arduinos
+//array can be empty
 
 bool loadSpeedSettings (HANDLE *comport, bool is_1_on, bool is_2_on, bool is_1_reverse, bool is_2_reverse,
                    byte speed_1, byte speed_2);

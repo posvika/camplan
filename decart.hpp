@@ -3,19 +3,11 @@
 
 #define polygon std::vector< decart* >
 
-extern int speed_x, speed_y, speed_z;
-
 struct decart
 {
    double x;
    double y;
    double z;
-};
-
-struct camera
-{
-    decart base;
-    float radius;
 };
 
 double square_distance (struct decart *place1, struct decart *place2);

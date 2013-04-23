@@ -6,7 +6,7 @@
 /* Эта программа открывает первые 256 сом-портов  */
 /* и ищет там нужные ардуины. Это пример.         */
 /**************************************************/
-#define COM_NUMBER 4
+
 #include <windows.h>
 #include <stdio.h>
 #include <iostream>
@@ -14,10 +14,10 @@
 
 using namespace std;
 
-int main (){
-
+int main ()
+{
     DCB comSettings;
-    int comNumber = -1, bStatus,i;
+    int comNumber = -1, bStatus, i;
     char comName[10];
 
     HANDLE comport = NULL;
