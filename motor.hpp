@@ -9,6 +9,8 @@
 #include "comport.hpp"
 
 #define BASE_AMOUNT 4   //число креплений
+#define ZONE_BOURDER 0.5 //50sm - граница зоны, где корректируется скорость
+#define ZONE_HEIGHT  0.3 //30sm - высота призмы - одного слоя защитных зон
 #define DELTA 0.1       //10sm
 #define STEP 0.05       //5sm - аг корректировки расстояния getCurrPlace()
 
@@ -34,6 +36,7 @@ class allInfo   ///only one
     std::vector<base> frame;          //array of rope base coord.
     decart currPlace;                   //camera current place
     std::vector<decart *> goodPlace, badPlace; //zones points array
+
 
     //decart ropeLengthDelta;
     float MAX_X, MAX_Y, MAX_Z;
