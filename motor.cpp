@@ -83,17 +83,23 @@ void allInfo::initMotorBase()
 {
     FILE *inFile=NULL;
     inFile = fopen("input.txt","r");
-    int temp;
+    //int temp;
     std::vector<float > dist;   //вводимые расстояние ме
     for (int i=0;i<4;i++)
     {
+        /*
         fscanf(inFile,"base%d|r=%fm|h=%fm|%fm|%fm|%fm\n",
                &temp,
-               &(this->frame[i].radius),
+               &(this->frame[i].radius),        ///this for looking for coordinates later
                &(this->frame[i].height),
                &(this->frame[i].dist[0]),
                &(this->frame[i].dist[1]),
-               &(this->frame[i].dist[2]));
+               &(this->frame[i].dist[2]));*/
+        fscanf(inFile,"r=%f(%lf;%lf;%lf)\n",
+               &(this->frame[i].radius),
+               &(this->frame[i].base.x),        //input coordinates
+               &(this->frame[i].base.y),
+               &(this->frame[i].base.z));
         //assert -s - проверки на адекватность входных данных
     }
     ///I.Находим проекции расстояний на плоскость

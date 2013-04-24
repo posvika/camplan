@@ -148,3 +148,49 @@
 	<vector>
 	"comport.hpp"
 
+1366774567 source:c:\users\pow_wow\documents\github\camplan\decart.cpp
+	<math.h>
+	<vector>
+	<stdio.h>
+	"decart.hpp"
+
+1366774567 c:\users\pow_wow\documents\github\camplan\decart.hpp
+	<math.h>
+	<vector>
+
+1366774567 source:c:\users\pow_wow\documents\github\camplan\main.cpp
+	<iostream>
+	<atomic>
+	<vector>
+	<windows.h>
+	"comport.hpp"
+	"motor.hpp"
+
+1366774567 c:\users\pow_wow\documents\github\camplan\comport.hpp
+	<windows.h>
+	<vector>
+
+1366774567 c:\users\pow_wow\documents\github\camplan\motor.hpp
+	<windows.h>
+	<cstdio>
+	<vector>
+	<atomic>
+	"decart.hpp"
+	"comport.hpp"
+
+1366774567 source:c:\users\pow_wow\documents\github\camplan\comport.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<bitset>
+	<vector>
+	"comport.hpp"
+
+1366795080 source:c:\users\pow_wow\documents\github\camplan\motor.cpp
+	<cstdio>
+	<iostream>
+	<math.h>
+	<vector>
+	<windows.h>
+	"motor.hpp"
+
